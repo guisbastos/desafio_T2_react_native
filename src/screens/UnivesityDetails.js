@@ -33,6 +33,12 @@ export default class UniversityDetails extends React.Component {
                 styles.textDetails
               }>{`Página Web\n${item.web_pages}`}</Text>
           </View>
+          <View style={styles.imageView}>
+            <Text
+              style={
+                styles.textDetails
+              }>{`react-native-google-image-search`}</Text>
+          </View>
           <View style={styles.buttonView}>
             <BackButton
               title={'Voltar'}
@@ -69,6 +75,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 10,
     //backgroundColor: 'rgba(10,10,14,0.6)',
+  },
+  imageView: {
+    flex: 1,
+    backgroundColor: 'rgba(10,10,14,0.8)',
+    borderWidth: 3,
+    borderRadius: 16,
+    justifyContent: 'center',
   },
   buttonView: {
     flex: 2,
