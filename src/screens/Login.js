@@ -5,9 +5,9 @@ import {
   StyleSheet,
   ImageBackground,
   Dimensions,
-  TextInput,
 } from 'react-native';
 import EnterButton from '../components/EnterButton';
+import DataInput from '../components/DataInput';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
@@ -29,16 +29,7 @@ export default class Login extends React.Component {
             <Text style={styles.titleText}>{`Acervo\nUniversidades`}</Text>
           </View>
           <View style={styles.textInputView}>
-            <TextInput
-              style={styles.textInput}
-              keyboardType="default"
-              placeholder={'Login'}
-            />
-            <TextInput
-              style={styles.textInput}
-              keyboardType="default"
-              placeholder={'Senha'}
-            />
+              <DataInput/>
           </View>
           <View style={styles.buttonView}>
             <EnterButton
