@@ -10,27 +10,20 @@ import {
 } from 'react-native';
 import gotApi from '../services/gotApi';
 
-export default class SearchButton extends React.Component {
+export default class BackButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        text: 'afsasv',
-    };
   }
 
-  getUniversities = () => {
-      console.warn(this.text)
-    /*gotApi.get('/search?country='+ this.state.text).then((result) => {
-        this.setState({
-          gotData: result.data,
-        });
-      }); */
+  buttonPress = () => {
+    const {screen, navigation} = this.props;
+    navigation.navigate(screen, {screen: screen});
   };
 
   render() {
     const {title} = this.props;
     return (
-      <Pressable style={styles.buttonTheme} onPress={() => this.getUniversities()}>
+      <Pressable style={styles.buttonTheme} onPress={() => this.buttonPress()}>
         <Text style={styles.textButton}>{`${title}`}</Text>
       </Pressable>
     );
@@ -43,16 +36,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     marginVertical: 8,
     borderRadius: 10,
-    borderBottomWidth: 3,
-    borderRightWidth: 3,
-    borderBottomColor: 'gray',
-    borderRightColor: 'gray',
+    borderWidth: 3,
+    borderColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
   },
   textButton: {
     textTransform: 'uppercase',
-    fontSize: 16,
+    fontSize: 23,
     fontWeight: 'bold',
     color: 'white',
   },

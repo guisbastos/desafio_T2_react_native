@@ -8,8 +8,8 @@ import {
   TextInput,
   FlatList,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
-import SearchButton from '../components/SearchButton';
 import gotApi from '../services/gotApi';
 
 /*const DATA_DEFAULT = [
@@ -76,10 +76,16 @@ export default class Search extends React.Component {
     });
   };
 
+  goToDetail = (item) => {
+    this.props.navigation.navigate('UniversityDetails', {screen: 'UniversityDetails', item: item});
+  };
+
   renderItem = ({item}) => {
     return (
       <View>
-        <Text style={styles.listItemContentTitle}>{`${item.name}`}</Text>
+        <TouchableOpacity onPress={() => this.goToDetail(item)}>
+          <Text style={styles.listItemContentTitle}>{`${item.name}`}</Text>
+        </TouchableOpacity>
       </View>
     );
   };
