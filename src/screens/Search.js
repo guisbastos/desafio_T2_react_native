@@ -7,63 +7,74 @@ import {
   Dimensions,
   TextInput,
   FlatList,
+  Pressable,
 } from 'react-native';
 import SearchButton from '../components/SearchButton';
+import gotApi from '../services/gotApi';
 
-const DATA_DEFAULT = [
+/*const DATA_DEFAULT = [
   {
     id: 1,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 2,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 3,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 4,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 5,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 6,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 7,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 8,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 9,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
   {
     id: 10,
-    university: '-----------------------------------',
+    name: '-----------------------------------',
   },
-];
+];*/
 
 const screenSizeHeight = Dimensions.get('window').height;
 
-export default class Login extends React.Component {
+export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       background: require('../assets/images/biblioteca.jpg'),
-      gotData: DATA_DEFAULT,
+      gotData: [],
       text: '',
     };
   }
+
+  getUniversities = () => {
+    //console.warn(this.state.text)
+    gotApi.get('/search?country=' + this.state.text).then(result => {
+      this.setState({
+        gotData: result.data,
+      });
+    });
+  };
 
   renderItem = ({item}) => {
     return (
@@ -91,11 +102,11 @@ export default class Login extends React.Component {
               />
             </View>
             <View style={styles.buttonView}>
-              <SearchButton
-                title="Procurar"
-                screen="Search"
-                navigation={this.props.navigation}
-              />
+              <Pressable
+                style={styles.buttonTheme}
+                onPress={() => this.getUniversities()}>
+                <Text style={styles.textButton}>{`Procurar`}</Text>
+              </Pressable>
             </View>
           </View>
           <View style={styles.resultView}>
@@ -158,5 +169,23 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     margin: 8,
     fontWeight: 'bold',
+  },
+  textButton: {
+    textTransform: 'uppercase',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  buttonTheme: {
+    height: 50,
+    backgroundColor: '#000',
+    marginVertical: 8,
+    borderRadius: 10,
+    borderBottomWidth: 3,
+    borderRightWidth: 3,
+    borderBottomColor: 'gray',
+    borderRightColor: 'gray',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

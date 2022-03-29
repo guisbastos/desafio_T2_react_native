@@ -11,24 +11,26 @@ import {
 import gotApi from '../services/gotApi';
 
 export default class SearchButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+        text: 'afsasv',
+    };
+  }
 
   getUniversities = () => {
-    gotApi.get('/search?country=Brazil').then((result) => {
+      console.warn(this.text)
+    /*gotApi.get('/search?country='+ this.state.text).then((result) => {
         this.setState({
           gotData: result.data,
         });
-      }); 
+      }); */
   };
 
   render() {
     const {title} = this.props;
     return (
-      <Pressable
-        style={styles.mainTheme}
-        onPress={() => this.getUniversities()}>
+      <Pressable style={styles.buttonTheme} onPress={() => this.getUniversities()}>
         <Text style={styles.textButton}>{`${title}`}</Text>
       </Pressable>
     );
@@ -36,7 +38,7 @@ export default class SearchButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  mainTheme: {
+  buttonTheme: {
     height: 50,
     backgroundColor: '#000',
     marginVertical: 8,
