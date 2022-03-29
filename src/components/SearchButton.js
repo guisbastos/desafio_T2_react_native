@@ -8,33 +8,29 @@ import {
   TextInput,
   Pressable,
 } from 'react-native';
-//import * as Animatable from 'react-native-animatable';
+import gotApi from '../services/gotApi';
 
-export default class EnterButton extends React.Component {
+export default class SearchButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-  /*constructor(props) {
-    super(props);
-    this.state = {
-      animationType: 'pulse',
-    };
-  }*/
-  
-  animatedPress = () => {
-    const {screen, navigation} = this.props;
-    5;
-    navigation.navigate(screen, {screen: screen});
+  getUniversities = () => {
+    gotApi.get('/search?country=Brazil').then((result) => {
+        this.setState({
+          gotData: result.data,
+        });
+      }); 
   };
 
   render() {
     const {title} = this.props;
     return (
-      //<Animatable.View animation={this.state.animationType}>
-        <Pressable
-          style={styles.mainTheme}
-          onPress={() => this.animatedPress()}>
-          <Text style={styles.textButton}>{`${title}`}</Text>
-        </Pressable>
-      //</Animatable.View>
+      <Pressable
+        style={styles.mainTheme}
+        onPress={() => this.getUniversities()}>
+        <Text style={styles.textButton}>{`${title}`}</Text>
+      </Pressable>
     );
   }
 }
