@@ -27,7 +27,7 @@ export default class UniversityDetails extends React.Component {
               style={
                 styles.textDetails
               }>{`Código do País: ${item.alpha_two_code}`}</Text>
-            {/*<Text style={styles.textDetails}>{`Estado: ${item.state-province}`}</Text>*/}
+            <Text style={styles.textDetails}>{`Estado: ${item['state-province']}`}</Text>
             <Text
               style={
                 styles.textDetails

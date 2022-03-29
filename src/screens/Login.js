@@ -29,7 +29,7 @@ export default class Login extends React.Component {
             <Text style={styles.titleText}>{`Acervo\nUniversidades`}</Text>
           </View>
           <View style={styles.textInputView}>
-            <DataInput />
+              <DataInput />
           </View>
           <View style={styles.buttonView}>
             <EnterButton
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   textInput: {
+    
     borderColor: '#000',
     padding: 10,
     borderWidth: 3,
@@ -78,6 +79,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.8)',
   },
   buttonView: {
-    flex: 2,
-  },
+      flex: 2
+  }
 });

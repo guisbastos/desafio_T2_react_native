@@ -12,49 +12,6 @@ import {
 } from 'react-native';
 import gotApi from '../services/gotApi';
 
-/*const DATA_DEFAULT = [
-  {
-    id: 1,
-    name: '-----------------------------------',
-  },
-  {
-    id: 2,
-    name: '-----------------------------------',
-  },
-  {
-    id: 3,
-    name: '-----------------------------------',
-  },
-  {
-    id: 4,
-    name: '-----------------------------------',
-  },
-  {
-    id: 5,
-    name: '-----------------------------------',
-  },
-  {
-    id: 6,
-    name: '-----------------------------------',
-  },
-  {
-    id: 7,
-    name: '-----------------------------------',
-  },
-  {
-    id: 8,
-    name: '-----------------------------------',
-  },
-  {
-    id: 9,
-    name: '-----------------------------------',
-  },
-  {
-    id: 10,
-    name: '-----------------------------------',
-  },
-];*/
-
 const screenSizeHeight = Dimensions.get('window').height;
 
 export default class Search extends React.Component {
@@ -116,7 +73,7 @@ export default class Search extends React.Component {
             </View>
           </View>
           <View style={styles.resultView}>
-            <FlatList
+            <FlatList 
               data={this.state.gotData}
               renderItem={item => this.renderItem(item)}
             />
