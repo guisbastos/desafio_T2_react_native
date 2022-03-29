@@ -71,7 +71,7 @@ export default class Search extends React.Component {
     //console.warn(this.state.text)
     gotApi.get('/search?country=' + this.state.text).then(result => {
       this.setState({
-        gotData: result.data,
+        gotData: result.data.length > 0 ? result.data : console.warn('Este país não existe. Tente novamente.'),
       });
     });
   };
@@ -102,7 +102,7 @@ export default class Search extends React.Component {
               <TextInput
                 style={styles.textInput}
                 keyboardType="default"
-                placeholder={'Escolha o país'}
+                placeholder={'Escolha o país (em inglês)'}
                 onChangeText={text => this.setState({text})}
                 value={this.state.text}
               />
