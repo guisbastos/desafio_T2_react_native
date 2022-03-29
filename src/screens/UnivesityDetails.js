@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 20,
     margin: 10,
-    //backgroundColor: 'rgba(10,10,14,0.6)',
   },
   imageView: {
     flex: 1,
@@ -86,9 +85,5 @@ const styles = StyleSheet.create({
   buttonView: {
     flex: 2,
     justifyContent: 'center',
-    //alignItems: 'center',
-    /*backgroundColor: 'red',
-    borderWidth: 3,
-    borderRadius: 16,*/
   },
 });

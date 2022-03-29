@@ -1,40 +1,22 @@
 import * as React from 'react';
 import {
   Text,
-  View,
   StyleSheet,
-  ImageBackground,
-  Dimensions,
-  TextInput,
   Pressable,
 } from 'react-native';
-//import * as Animatable from 'react-native-animatable';
 
 export default class EnterButton extends React.Component {
-
-  /*constructor(props) {
-    super(props);
-    this.state = {
-      animationType: 'pulse',
-    };
-  }*/
-  
-  animatedPress = () => {
+  buttonPress = () => {
     const {screen, navigation} = this.props;
-    5;
     navigation.navigate(screen, {screen: screen});
   };
 
   render() {
     const {title} = this.props;
     return (
-      //<Animatable.View animation={this.state.animationType}>
-        <Pressable
-          style={styles.mainTheme}
-          onPress={() => this.animatedPress()}>
-          <Text style={styles.textButton}>{`${title}`}</Text>
-        </Pressable>
-      //</Animatable.View>
+      <Pressable style={styles.mainTheme} onPress={() => this.buttonPress()}>
+        <Text style={styles.textButton}>{`${title}`}</Text>
+      </Pressable>
     );
   }
 }

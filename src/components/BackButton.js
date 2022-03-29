@@ -1,14 +1,9 @@
 import * as React from 'react';
 import {
   Text,
-  View,
   StyleSheet,
-  ImageBackground,
-  Dimensions,
-  TextInput,
   Pressable,
 } from 'react-native';
-import gotApi from '../services/gotApi';
 
 export default class BackButton extends React.Component {
   constructor(props) {
